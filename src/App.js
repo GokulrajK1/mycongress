@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import db from "./firebase"
+import { useState, useEffect } from "react";
+
 
 function App() {
   return (
