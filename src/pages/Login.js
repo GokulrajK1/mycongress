@@ -1,4 +1,5 @@
 import './Login.css';
+import database from '../firebase'
 
 
 const loginHandle =(e) => {
@@ -13,7 +14,7 @@ function Login() {
 
         <form onSubmit={(e) => loginHandle(e)}>
             <input name='email' placeholder='Email'></input> <br/>
-            <input name='password' type='password' placeholder='password'></input><br/>
+            <input name='password' type='password' placeholder='password'></input> <br/>
             <button>SignIn</button>
         </form>
       </div>
