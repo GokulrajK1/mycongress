@@ -14,7 +14,7 @@ function Homepage() {
   })
 
     return (
-      <div className="App">
+      <div className="Homepage">
        <h1>Homepage</h1>
        <button onClick={buttonResponse}>SignOut</button>
       </div>
