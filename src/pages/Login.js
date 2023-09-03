@@ -1,20 +1,31 @@
 import './Login.css';
-import database from '../firebase'
+import {database} from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
-
-const loginHandle =(e) => {
-    e.preventDefault()
-    console.log("Hello")
-}
 
 function Login() {
+
+  const transfer = useNavigate()
+
+  const loginHandle =(e) => {
+      e.preventDefault()
+      const email = e.target.email.value
+      const password = e.target.password.value
+      createUserWithEmailAndPassword(database, email, password).then(data=>{
+          console.log(data, "authdata");
+          transfer('/homepage');
+      })
+  }
+
+
     return (
       <div className="App">
         <h1>LOGIN</h1>
 
         <form onSubmit={(e) => loginHandle(e)}>
-            <input name='email' placeholder='Email'></input> <br/>
-            <input name='password' type='password' placeholder='password'></input> <br/>
+            <input name='email' placeholder='Email' /><br/>
+            <input name='password' type='password' placeholder='Password' /> <br/>
             <button>SignIn</button>
         </form>
       </div>
