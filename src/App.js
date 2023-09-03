@@ -1,7 +1,7 @@
 import db from "./firebase"
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Homepage from "./Homepage";
+import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
 
 
