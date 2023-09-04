@@ -25,19 +25,35 @@ function Login() {
   }
 
 
-    return (
-      <div className="Login">
-        <h1>LOGIN</h1>
-
-        <form onSubmit={(e) => loginHandle(e)}>
-            <input name='email' placeholder='Email' /><br/>
-            <input name='password' type='password' placeholder='Password' /> <br/>
-            <button>SignIn</button>
-        </form>
-        <button onClick = {signuptransfer}>Sign Up</button>
+  return (
+    <body>
+  <div class="container">
+      <div class="design">
+          <div class="pill-1 rotate-45"></div>
+          <div class="pill-2 rotate-45"></div>
+          <div class="pill-3 rotate-45"></div>
+          <div class="pill-4 rotate-45"></div>
       </div>
-    );
-  }
+      <div class="login">
+          <h3 class="title">Sign In</h3>
+          <form onSubmit={(e) => loginHandle(e)}>
+          <div class="text-input">
+              <i class="ri-user-fill"></i>
+              <input name="email" type="text" placeholder="Email" />
+          </div>
+          <div class="text-input">
+              <i class="ri-lock-fill"></i>
+              <input name="password" type="password" placeholder="Password" />
+          </div>
+          <button class="login-btn">LOGIN</button>
+          </form>
+          <a href="#" class="forgot">Forgot Username/Password?</a> <br/>
+          <a href="signup" class="forgot">Create New Account</a>
+      </div>
+  </div>
+</body>
+  );
+}
   
   export default Login;
   //Testing if working

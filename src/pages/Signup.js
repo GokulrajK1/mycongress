@@ -27,8 +27,12 @@ function Signup() {
           console.log(data, "authdata");
           transfer('/homepage');
       }).catch(err => {
+        if(err.code == "auth/email-already-in-use"){
+          setlogin(true)
+          logintransfer()
+        }
         alert(err.code);
-        setlogin(true)
+        console.log("Error: ",err.code)
       })
         }
       else{
@@ -38,20 +42,40 @@ function Signup() {
 
 
     return (
-      <div className="Signup">
-        <h1>Sign Up</h1>
-
-        <form onSubmit={(e) => loginHandle(e, login?'signin':'signup')}>
-            <input name='fname' placeholder='First Name' /><br/>
-            <input name='lname' placeholder='Last Name' /><br/>
-            <input name='email' placeholder='Email' /><br/>
-            <input name='password' type='password' placeholder='Password' /> <br/>
-            <button>Sign Up</button>
-        </form>
-        <button onClick = {logintransfer}>Login</button>
-      </div>
+      <body>
+    <div class="container">
+        <div class="design">
+            <div class="pill-1 rotate-45"></div>
+            <div class="pill-2 rotate-45"></div>
+            <div class="pill-3 rotate-45"></div>
+            <div class="pill-4 rotate-45"></div>
+        </div>
+        <div class="login">
+            <h3 class="title">Sign Up</h3>
+            <form onSubmit={(e) => loginHandle(e, login?'signin':'signup')}>
+            <div class="text-input">
+                <i class="ri-user-fill"></i>
+                <input name="email" type="text" placeholder="Email" />
+            </div>
+            <div class="text-input">
+                <i class="ri-lock-fill"></i>
+                <input name="password" type="password" placeholder="Password" />
+            </div>
+            <button class="login-btn">SIGN UP</button>
+            </form>
+            <a href="#" class="forgot">Forgot Username/Password?</a> <br/>
+            <a href="/" class="forgot">Sign In/Login</a> <br/>
+            <div class="create">
+                <a href="#">Create Your Account</a>
+                <i class="ri-arrow-right-fill"></i>
+            </div>
+        </div>
+    </div>
+</body>
     );
   }
   
   export default Signup;
   //Testing if working
+
+  //<form onSubmit={(e) => loginHandle(e, login?'signin':'signup')}>
